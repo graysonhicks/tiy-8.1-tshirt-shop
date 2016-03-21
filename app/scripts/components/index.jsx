@@ -23,7 +23,8 @@ var IndexComponent = React.createClass({
     this.setState({
       cartCollection: this.props.cartCollection
     });
-    console.log('cartCollection', this.state.cartCollection);
+    var cartCollectionJSONString = JSON.stringify(this.state.cartCollection.toJSON());
+    localStorage.setItem("orders", cartCollectionJSONString);
   },
   cartTotal: function(){
     this.setState({total: this.props.cartCollection.total().toFixed(2)});
